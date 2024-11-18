@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
+<input type="text" id="qty" name="qty" class="small w-25 text-right" value="">
+<script>
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("qty").onkeyup = store;
+    document.getElementById("qty").onload = getValue();
+});
+
+
+//store value after changes
+function store(){
+    var text = document.getElementById("qty").value;
+    localStorage.setItem("qty",text);
+}
+//local storage to keep values after refresh
+function getValue(){
+    var storedText = localStorage.getItem("qty");
+    alert(storedText);
+    if(storedText != null){
+        document.getElementById("qty").value = storedText; 
+    }
+    else
+        document.getElementById("qty").value = 0;
+}
+
+</script>
+</body>
+</html>

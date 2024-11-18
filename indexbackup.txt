@@ -1,0 +1,467 @@
+<?php 
+
+//index.php
+
+$connect = new PDO("mysql:host=localhost;dbname=ilazo pharmacy and cosmetics", "root", "");
+
+$query = "
+SELECT `Description` FROM `receved items`
+ORDER BY `Description` ASC
+
+
+
+
+";
+
+$result = $connect->query($query);
+
+
+
+?>
+
+<!doctype html>
+<html lang="en">
+    <head>
+
+
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PHP & Ajax</title>
+  <link rel="stylesheet" href="mpambe/css/style.css">
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="icon" type="image/jpg" href="image/favicons.jpg">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="library/bootstrap-5/bootstrap.min.css" rel="stylesheet" />
+        <script src="library/bootstrap-5/bootstrap.bundle.min.js"></script>
+        <script src="library/dselect.js"></script>
+        <title>Sales</title>
+        <style>
+header{
+position:relative;
+
+width: 100%;
+ color: #003f5c;
+  border-bottom: 2px solid #e7e7e7;
+font-size:25px;
+text-align:center;
+
+font-weight:bold;
+padding:13px;
+
+}
+nav {
+
+width: 100%;
+
+-webkit-box-shadow: 4px 10px 0px -2px rgba(127,127,127,0.82); 
+box-shadow: 4px 10px 0px -2px rgba(127,127,127,0.82);
+padding:13px;
+
+
+}
+nav a{
+
+padding-right:30px;
+color:black;
+cursor:pointer;
+text-decoration:none;
+list-style-type: none; 
+font-weight:bold;
+font-size:18px;
+}
+
+nav a:hover{
+
+font-size:19px;
+border-bottom:2px solid #003f5c;
+}
+footer{
+width:100%;
+height:30px;
+text-align:center;
+
+box-shadow: 6px 6px 21px 1px rgba(0,0,0,0.35);
+-webkit-box-shadow: 6px 6px 21px 1px rgba(0,0,0,0.35);
+-moz-box-shadow: 6px 6px 21px 1px rgba(0,0,0,0.35);
+
+}
+.myinfo1{
+text-align:center;
+background-color:white;
+border-radius:14px;
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.33);
+
+width:100%;
+height:332px;
+}
+.myinfo1 img{
+position:relative;
+overflow: hidden;
+margin-top:-56px;
+
+}
+#icomn img{
+border:1px solid #003f5c;
+
+padding:15px;
+ justify-content: space-between;
+object-fit: cover;
+-webkit-box-shadow: 4px 10px 0px -2px rgba(127,127,127,0.80); 
+box-shadow: 4px 10px 0px -2px rgba(127,127,127,0.80);
+}
+#icomn{
+margin-left:40%;
+
+}
+#icomn img:hover{
+
+transform: scale(1.3);
+cursor:pointer;
+
+}
+html {
+  scroll-behavior: smooth;
+}
+#backtotop{
+color:#003f5c;
+float:right;
+margin-top:-32px;
+}
+#backtotop a{
+text-decoration:none;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+    <body>
+
+
+    <div class="wrapper">
+<a name="top"></a>
+<header>
+
+<p><b>Sales</b></p>
+
+</header>
+<br/>
+<nav>
+<a href="index.html">Home</a> 
+
+<a href="display.php" > Receved Items</a> 
+
+<a href="#icomn">Contact me</a>
+
+
+
+</nav>
+<br/>
+<br/>
+<!--            Hide body when choose dropdown  -->
+
+<script>
+
+</script>
+<!--           end choose dropdown  -->
+
+<div class="article"  >
+
+<br/>
+<!-- <img  src="image/Homeworkicons.png" style=" padding-right:74px;" width="560" height="360" alt="Books">  -->
+<div class="container">
+           <!-- <h1 class="mt-2 mb-3 text-center text-primary">ilazo pharmacy and cosmetics</h1> -->
+            <div class="row">
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-6">
+
+
+
+
+
+
+
+
+
+
+
+                
+                    <select   name="select_box" class="form-select" id="select_box"   >
+                        <option value="" >Select Product</option>
+
+
+                        <?php 
+                        foreach($result as $row)
+                        {
+                            echo '<script type="text/JavaScript"> 
+                           
+                            </script>
+                            <option value="'.$row["Description"].'">'.$row["Description"].'</option>';
+
+                            
+
+                        }
+
+                        echo'$row[id]';
+
+                        echo'My name is';
+                        ?> 
+                        
+                        
+                    </select>
+
+                 
+                 
+
+
+
+                </div>
+                <div class="col-md-3">&nbsp;</div>
+
+
+
+
+            </div>      
+            <br />
+            <br />
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+</div>
+
+
+
+
+
+
+<br/><br/>
+
+
+</div>
+
+  <table id="main" border="0" cellspacing="0">
+    <tr>
+      <td id="header">
+        <h1> 
+        </h1>
+      </td>
+    </tr>
+    <tr>
+      <td id="table-form">
+        <form>
+          <select id="city-box"  name="select_box" class="form-select" id="select_box">
+                          <option value="">Select Product</option>
+                        </select>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td id="table-data"></td>
+    </tr>
+  </table>
+    
+<script type="text/javascript" src="mpambe/js/jquery.js"></script>
+<script type="text/javascript">
+  
+
+
+
+
+
+
+
+
+
+
+  
+  $(document).ready(function(){
+    $.ajax({
+      url : "load-city.php",
+      type : "POST",
+      dataType : "JSON",
+      success : function(data){
+        $.each(data, function(key, value){
+          $("#city-box").append("<option >" + value.Description +  "</option>");
+
+        });
+      }
+     
+
+    });
+
+    // Load Table Data
+    $("#city-box").change(function(){
+      var city = $(this).val();
+
+      if(city == ""){
+        $("#table-data").html("");
+      }else{
+        $.ajax({
+          url : "load-table.php",
+          type : "POST",
+          data : { city : city },
+          success : function(data){
+            $("#table-data").html(data);
+          }
+        });
+      }
+    })
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+<!--
+        <br/><br/>
+<a id="backtotop" href="#top" style="text-decoration:none;">back to top</a>
+<footer>
+
+ &copy; <small>ilazo pharmacy and cosmetics</small>
+</footer>
+</div>
+
+                    -->
+    </body>
+</html>
+<!--            dropdown  -->
+<script>
+
+
+
+
+
+
+
+
+
+
+
+let option1 = document.getElementById('select_box');
+let option2 = document.getElementById('city-box');
+
+function matchOptions(e) {
+ let option = e.target.selectedIndex;
+ option1.selectedIndex = option;
+ option2.selectedIndex = option;
+}
+
+option1.addEventListener('change', matchOptions);
+option2.addEventListener('change', option1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var select_box_element = document.querySelector('#select_box');
+
+    dselect(select_box_element, {
+        search: true
+    });
+
+</script>
+<!--            end dropdown  -->
+
+<!--            Hide body when choose dropdown  -->
+
+
+<!--           end choose dropdown  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div id="icomn">
+
+
+<a href="https://www.instagram.com/nyoxmlimwap" target="_blank"><img src="icon/Insta.png" width="30" height="26" alt="Instagram icon" ></a>
+<a href="mailto:cliffmlimwa@gmail.com" target="_blank"><img src="icon/Gmail.png" width="30" height="20" alt="Gmail icon" ></a>
+<a href="https://wa.me/+255767622192/?text=urlencodedtext" target="-black"><img src="icon/tsups.png" width="35" height="26" alt="WhatsApp icon" ></a>
+<a href="https://www.facebook.com/profile.php?id=100010160807745" target="_blank"><img src="icon/Fb.png" width="30" height="26" alt="facebook icon" ></a>
+                    -->
+
+</body>
